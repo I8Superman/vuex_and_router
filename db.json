@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "name": "Loafers",
+      "price": "$50",
+      "brand": "CasualAtHome",
+      "inventoryStatus": true,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "New Name",
+      "price": "2000",
+      "brand": "New Brand",
+      "inventoryStatus": false
+    },
+    {
+      "name": "e4fdsd",
+      "price": "444",
+      "brand": "uuuiiii",
+      "inventoryStatus": true,
+      "id": 4
+    },
+    {
+      "name": "Crazy Name",
+      "price": "300",
+      "brand": "crazy Brand",
+      "inventoryStatus": false,
+      "id": 5
+    },
+    {
+      "name": "run forya lifw",
+      "price": "10",
+      "brand": "Dont get killed",
+      "inventoryStatus": false,
+      "id": 6
+    }
+  ]
+}
