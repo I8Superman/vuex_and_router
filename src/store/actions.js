@@ -11,5 +11,35 @@ export default {
             // or
             throw new Error(error);
         }
+    },
+    addProduct: async ({ commit }, payload) => {
+        try {
+            let result = await axios.post('http://localhost:3000/products', payload);
+            commit('ADD_PRODUCT', result.data);
+        } catch (error) {
+            console.log(error);
+            // or
+            throw new Error(error);
+        }
+    },
+    deleteProduct: async ({ commit }, payload) => { // Payload will be the id of the product
+        try {
+            await axios.delete(`http://localhost:3000/products/${payload}`);
+            commit('DELETE_PRODUCT', payload);
+        } catch (error) {
+            console.log(error);
+            // or
+            throw new Error(error);
+        }
+    },
+    updateProduct: async ({ commit }, payload) => { // Payload will be the id of the product
+        try {
+            let result = await axios.put(`http://localhost:3000/products/${payload.id}`, payload); // The whole product is passed. We get the id and 'put' the updated product to that id.
+            commit('Update_PRODUCT', result.data);
+        } catch (error) {
+            console.log(error);
+            // or
+            throw new Error(error);
+        }
     }
 }

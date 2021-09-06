@@ -70,6 +70,7 @@ export default {
       console.log("Product changes submitted");
       byModalEvt.preventDefault();
       this.form.inventoryStatus = this.form.inventoryStatus === "true";
+      this.$store.dispatch("updateProduct", this.form);
       this.modalShow = false;
       this.submitted = false;
     },

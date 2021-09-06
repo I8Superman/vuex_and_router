@@ -61,7 +61,7 @@ export default {
       this.form.inventoryStatus = this.form.inventoryStatus === "true"; // The value from the radio buttons is a string. We need it as a boolean. By comparing our string with another string, it will be either true or false, that is, return a boolean.
       // "addProduct" is the name of the emit to listen for
       // this.$emit("addProduct", this.form);
-
+      this.$store.dispatch("addProduct", this.form); // We dispatch to/call the addProduct action, sending the new product (this.form) as payload
       // Lets clear the form after submitting
       this.form = {
         name: "",

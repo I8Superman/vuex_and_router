@@ -5,7 +5,7 @@
         <b-card-group deck>
           <!-- v-for works as .forEach and iterates through the elems in the array, creating a li elem for each, assigning a unique key identifier. 'success' and 'danger' are predefined colors from Bootstrap-->
           <!-- Instead of passing a prop (products), we are now calling the computed method productList, that will get the data from the vuex store -->
-          <b-card v-for="product in productList" :border-variant="product.inventoryStatus? 'success' : 'danger'" align="center" :key="product.id">
+          <b-card v-for="product in productList" :border-variant="product.inventoryStatus? 'success' : 'danger'" align="center" :key="product.id" class="card">
             <b-card-text>
               <strong>{{product.name}}</strong>
             </b-card-text>
@@ -20,7 +20,7 @@
                 </b-button>
               </b-col>
               <b-col>
-                <UpdateProduct :product="product" @updateProduct="updateProduct" />
+                <UpdateProduct :product="product" />
               </b-col>
             </b-row>
           </b-card>
@@ -44,8 +44,9 @@ export default {
     UpdateProduct,
   },
   methods: {
-    // deleteProduct(productId) {},
-    updateProduct(updatedProduct) {},
+    deleteProduct(productId) {
+      this.$store.dispatch("deleteProduct", productId); // We dispatch to the productDelete action
+    },
   },
   // 'Computed' are methods that re-evaluate its properties every time the properties change
   computed: {
