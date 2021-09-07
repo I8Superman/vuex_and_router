@@ -24,4 +24,10 @@ a {
   text-decoration: none !important;
   color: #fff !important;
 }
+
+.page-loader {
+  top: 49%;
+  left: 49%;
+  position: absolute;
+}
 </style>

@@ -25,9 +25,11 @@
             </b-row>
           </b-card>
         </b-card-group>
-        <h2 v-if="productList.length < 1">No products found!</h2>
+        <!-- To not show the 'No products found at the same time as the page loader we add a condition (!showPageLoader) to the element below -->
+        <h2 v-if="productList.length < 1 && !showPageLoader">No products found!</h2>
       </b-card>
     </div>
+    <b-spinner variant="secondary" class="page-loader" v-if="showPageLoader"></b-spinner>
   </b-col>
 </template>
 
@@ -38,7 +40,9 @@ import UpdateProduct from "./UpdateProduct.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      showPageLoader: false,
+    };
   },
   components: {
     UpdateProduct,
@@ -66,9 +70,17 @@ export default {
       //);
     },
   },
-  mounted() {
+  async mounted() {
+    // We make the function async to make use of the await keyword as a timer for the page loader
     // When the instance is mounted, the data is fetched (by calling the action setProducts, which again calls the mutation SET_PRODUCTS, which in turn changes the actual state!)
-    this.$store.dispatch("setProducts");
+    try {
+      this.showPageLoader = true;
+      await this.$store.dispatch("setProducts");
+      this.showPageLoader = false;
+    } catch (error) {
+      console.log(error);
+      this.showPageLoader = false;
+    }
   },
 };
 </script>

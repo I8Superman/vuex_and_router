@@ -20,13 +20,6 @@
       "brand": "Goodfeeling",
       "inventoryStatus": false,
       "id": 4
-    },
-    {
-      "name": "Balbla",
-      "price": "542323",
-      "brand": "fdfd",
-      "inventoryStatus": true,
-      "id": 5
     }
   ]
 }
