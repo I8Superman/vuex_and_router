@@ -36,13 +36,15 @@
             </b-form>
           </ValidationObserver>
         </b-card-body>
-        <b-button block variant="primary" @click="addProduct">Add Product</b-button>
+        <b-button block variant="primary" @click="add">Add Product</b-button>
       </b-card>
     </div>
   </b-col>
 </template>
 
 <script>
+import { mapActions } from "vuex"; // We can use this to 'map' certain actions (from actions.js) and use them more readily in the methods
+
 export default {
   data() {
     return {
@@ -56,12 +58,14 @@ export default {
     };
   },
   methods: {
-    addProduct() {
+    ...mapActions(["addProduct"]), // We use the spread operator as an object is returned (?)
+    add() {
       this.submitted = true;
       this.form.inventoryStatus = this.form.inventoryStatus === "true"; // The value from the radio buttons is a string. We need it as a boolean. By comparing our string with another string, it will be either true or false, that is, return a boolean.
       // "addProduct" is the name of the emit to listen for
       // this.$emit("addProduct", this.form);
-      this.$store.dispatch("addProduct", this.form); // We dispatch to/call the addProduct action, sending the new product (this.form) as payload
+      //this.$store.dispatch("addProduct", this.form); // We dispatch to/call the addProduct action, sending the new product (this.form) as payload
+      this.addProduct(this.form); // Here we simply call the map action instead of using the dispatch syntax - probably more to map actions than this ...?
       // Lets clear the form after submitting
       this.form = {
         name: "",
