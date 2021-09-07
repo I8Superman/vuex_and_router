@@ -2,17 +2,24 @@
   "products": [
     {
       "name": "Loafers",
-      "price": "$50",
-      "brand": "CasualAtHome",
+      "price": "60000000",
+      "brand": "CasualAtHomesy",
       "inventoryStatus": true,
       "id": 2
     },
     {
       "id": 3,
-      "name": "New Name",
-      "price": "56",
-      "brand": "New Brand",
+      "name": "New Games",
+      "price": "77777",
+      "brand": "Brandy",
       "inventoryStatus": false
+    },
+    {
+      "name": "This Product is Awweeeee",
+      "price": "90",
+      "brand": "Goodfeeling",
+      "inventoryStatus": false,
+      "id": 4
     }
   ]
 }

@@ -35,7 +35,7 @@ export default {
     updateProduct: async ({ commit }, payload) => { // Payload will be the id of the product
         try {
             let result = await axios.put(`http://localhost:3000/products/${payload.id}`, payload); // The whole product is passed. We get the id and 'put' the updated product to that id.
-            commit('Update_PRODUCT', result.data);
+            commit('UPDATE_PRODUCT', result.data);
         } catch (error) {
             console.log(error);
             // or
