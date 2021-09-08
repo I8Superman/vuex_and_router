@@ -75,6 +75,14 @@ export default {
         // this.addProduct(this.form); // Here we simply call the map action instead of using the dispatch syntax - probably more to map actions than this ...?
         // Lets clear the form after submitting
         this.showSpinner = false;
+        this.$bvToast.toast("Product succesfully added", {
+          // The fucking toast doesn't work! Don't know why. Some
+          title: `SUCCESS`,
+          variant: "success",
+          solid: true,
+          autoHideDelay: 2000,
+          toaster: "b-toaster-top-right",
+        });
         this.form = {
           name: "",
           price: "",
